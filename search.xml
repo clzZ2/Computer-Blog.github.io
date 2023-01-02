@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>JVM 第13讲：JDK性能监控命令</title>
+      <link href="/2023/01/02/01-JVM-ch13/"/>
+      <url>/2023/01/02/01-JVM-ch13/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM从入门到精通-第13讲-JDK性能监控命令"><a href="#JVM从入门到精通-第13讲-JDK性能监控命令" class="headerlink" title="JVM从入门到精通 第13讲: JDK性能监控命令"></a>JVM从入门到精通 第13讲: JDK性能监控命令</h1><blockquote><p><strong><font size=4>前言📝</font></strong></p><p>&emsp;&emsp;我们都知道 JVM 在启动的时候会去加载类信息，那么我们怎么得知他加载了哪些类，又卸载了哪些类呢？我们这一节就来介绍四个 JVM 参数，使用它们我们就可以清晰地知道 JVM 的类加载信息。</p><p>&emsp;&emsp;为了方便演示，我们使用下面的程序作为本次的演示程序。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM 第12讲：JVM参数之GC日志配置</title>
+      <link href="/2023/01/02/01-JVM-ch12/"/>
+      <url>/2023/01/02/01-JVM-ch12/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM从入门到精通-第12讲-JVM参数之GC日志配置"><a href="#JVM从入门到精通-第12讲-JVM参数之GC日志配置" class="headerlink" title="JVM从入门到精通 第12讲: JVM参数之GC日志配置"></a>JVM从入门到精通 第12讲: JVM参数之GC日志配置</h1><blockquote><p><strong><font size=4>前言📝</font></strong></p><p>&emsp;&emsp;我们都知道 JVM 在启动的时候会去加载类信息，那么我们怎么得知他加载了哪些类，又卸载了哪些类呢？我们这一节就来介绍四个 JVM 参数，使用它们我们就可以清晰地知道 JVM 的类加载信息。</p><p>&emsp;&emsp;为了方便演示，我们使用下面的程序作为本次的演示程序。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM 第11讲：JVM参数之追踪类信息</title>
+      <link href="/2023/01/02/01-JVM-ch11/"/>
+      <url>/2023/01/02/01-JVM-ch11/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM从入门到精通-第11讲-JVM参数之追踪类信息"><a href="#JVM从入门到精通-第11讲-JVM参数之追踪类信息" class="headerlink" title="JVM从入门到精通 第11讲: JVM参数之追踪类信息"></a>JVM从入门到精通 第11讲: JVM参数之追踪类信息</h1><blockquote><p><strong><font size=4>前言📝</font></strong></p><p>&emsp;&emsp;我们都知道 JVM 在启动的时候会去加载类信息，那么我们怎么得知他加载了哪些类，又卸载了哪些类呢？我们这一节就来介绍四个 JVM 参数，使用它们我们就可以清晰地知道 JVM 的类加载信息。</p><p>&emsp;&emsp;为了方便演示，我们使用下面的程序作为本次的演示程序。</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ClassLoadDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">&quot;chenshuyi&quot;</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello, I&#x27;m &quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="跟踪类的加载和卸载-verbose-class"><a href="#跟踪类的加载和卸载-verbose-class" class="headerlink" title="跟踪类的加载和卸载 -verbose:class"></a>跟踪类的加载和卸载 -verbose:class</h2><blockquote><p>&emsp;&emsp;我们使用下面的参数运行程序：</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -verbose:<span class="keyword">class</span> <span class="title class_">com</span>.chenshuyi.ClassLoadDemo &gt; class_load_info.txt</span><br></pre></td></tr></table></figure><blockquote><p>&emsp;&emsp;之后我们打开 class_load_info.txt 文件。因为该文件太大，所以我们节选一部分：</p></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 省略</span></span><br><span class="line">[Loaded java.util.ArrayList from /Library/Java/JavaVirtualMachines/jdk1<span class="number">.8</span><span class="number">.0_181</span>.jdk/Contents/Home/jre/lib/rt.jar]</span><br><span class="line"><span class="comment">// 省略</span></span><br><span class="line">[Loaded java.util.HashMap from /Library/Java/JavaVirtualMachines/jdk1<span class="number">.8</span><span class="number">.0_181</span>.jdk/Contents/Home/jre/lib/rt.jar]</span><br><span class="line"><span class="comment">// 省略</span></span><br><span class="line">[Loaded com.chenshuyi.ClassLoadDemo from file:/Users/yurongchan/Yosemite/Code/practice/target/classes/]</span><br><span class="line"><span class="comment">// 省略</span></span><br></pre></td></tr></table></figure><blockquote><p>&emsp;&emsp;从上面可以看到 JVM 分别加载了 ArrayList、HashMap 类，以及我们自己定义的 ClassLoadDemo 类。</p></blockquote><p><br></p><h2 id="跟踪类的加载-XX-TraceClassLoading"><a href="#跟踪类的加载-XX-TraceClassLoading" class="headerlink" title="跟踪类的加载 -XX:+TraceClassLoading"></a>跟踪类的加载 -XX:+TraceClassLoading</h2><blockquote><p>&emsp;&emsp; 该参数与可以显示类的加载信息，输出的结果和 <code>-verbose:class</code> 一样，但比起它少了类的卸载信息。</p></blockquote><p><br></p><h2 id="跟踪类的卸载-XX-TraceClassUnloading"><a href="#跟踪类的卸载-XX-TraceClassUnloading" class="headerlink" title="跟踪类的卸载 -XX:+TraceClassUnloading"></a>跟踪类的卸载 -XX:+TraceClassUnloading</h2><blockquote><p>&emsp;&emsp;该参数与可以显示类的加载信息，输出的结果和 <code>-verbose:class</code> 一样，但比起它少了类的加载信息。</p><p>&emsp;&emsp;但实际上我们通过上面这个简单的例子，没有发现类的卸载信息，或许是例子太简单了，所以没有这个。</p></blockquote><p><br></p><h2 id="XX-PrintClassHistogram"><a href="#XX-PrintClassHistogram" class="headerlink" title="-XX:+PrintClassHistogram"></a>-XX:+PrintClassHistogram</h2><blockquote><p>&emsp;&emsp;该参数表示遇到 Ctrl-Break 后打印类实例的柱状信息，与 jmap -histo 功能相同。</p></blockquote><p><br></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote><p>&emsp;&emsp;了解了这些参数，能够让我们更好地了解哪些类已经被加载到 JVM 中，从而更好地排查问题。</p></blockquote><div class="table-container"><table><thead><tr><th style="text-align:center">参数</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">-verbose:class</td><td style="text-align:center">跟踪类的加载和卸载</td></tr><tr><td style="text-align:center">-XX:+TraceClassLoading</td><td style="text-align:center">跟踪类的加载</td></tr><tr><td style="text-align:center">-XX:+TraceClassUnloading</td><td style="text-align:center">跟踪类的卸载</td></tr><tr><td style="text-align:center">-XX:+PrintClassHistogram</td><td style="text-align:center">显示类信息柱状图</td></tr></tbody></table></div><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM 第10讲：JVM参数之查看JVM参数</title>
+      <link href="/2023/01/02/01-JVM-ch10/"/>
+      <url>/2023/01/02/01-JVM-ch10/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM从入门到精通-第10讲-JVM参数之查看JVM参数"><a href="#JVM从入门到精通-第10讲-JVM参数之查看JVM参数" class="headerlink" title="JVM从入门到精通 第10讲: JVM参数之查看JVM参数"></a>JVM从入门到精通 第10讲: JVM参数之查看JVM参数</h1><blockquote><p><strong><font size=4>前言📝</font></strong></p><p>&emsp;&emsp;今天要说的是如何查看 JVM 中已经设置的参数，包括 <code>显示参数</code> 和 <code>隐式参数</code> 。</p></blockquote><h2 id="打印显式参数"><a href="#打印显式参数" class="headerlink" title="打印显式参数"></a>打印显式参数</h2><p>&emsp;&emsp;我们使用 <code>-XX:+PrintVMOptions</code> 打印显式参数。</p><p>&emsp;&emsp;该参数表示程序运行时，打印虚拟机接受到的命令行显式参数。我们用下面的命令运行程序：</p><p>&emsp;&emsp;可以看到我们设置了 <code>+UseSerialGC</code> 和 <code>+PrintVMOptions</code> 两个参数，最后运行时也将这两个参数打印出来了。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 运行代码</span></span><br><span class="line">java  -XX:+UseSerialGC -XX:+PrintVMOptions com.chenshuyi.ClassLoadDemo</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line">VM option <span class="string">&#x27;+UseSerialGC&#x27;</span></span><br><span class="line">VM option <span class="string">&#x27;+PrintVMOptions&#x27;</span></span><br><span class="line">Hello, I<span class="string">&#x27;m chenshuyi</span></span><br></pre></td></tr></table></figure><p><br></p><h2 id="打印显式隐式参数"><a href="#打印显式隐式参数" class="headerlink" title="打印显式隐式参数"></a>打印显式隐式参数</h2><p>&emsp;&emsp;我们使用 <code>-XX:+PrintCommandLineFlags</code> 打印显式隐式参数</p><p>&emsp;&emsp;该参数打印传递给虚拟机的显式和隐式参数。我们用下面的命令运行程序：</p><p>&emsp;&emsp;可以看到程序不仅输出了我们显式设置的参数，还将虚拟机默认的参数打印了出来，包括初始堆大小（134217728），最大堆大小（2147483648）等。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 运行代码</span></span><br><span class="line">java  -XX:+UseSerialGC -XX:+PrintCommandLineFlags com.chenshuyi.ClassLoadDemo</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line">-XX:InitialHeapSize=<span class="number">134217728</span> -XX:MaxHeapSize=<span class="number">2147483648</span> -XX:+PrintCommandLineFlags -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseSerialGC</span><br><span class="line">Hello, I<span class="string">&#x27;m chenshuyi</span></span><br></pre></td></tr></table></figure><h2 id="打印所有系统参数"><a href="#打印所有系统参数" class="headerlink" title="打印所有系统参数"></a>打印所有系统参数</h2><p>&emsp;&emsp;我们使用 <code>-XX:+PrintFlagsFinal</code>  打印所有系统参数。</p><p>&emsp;&emsp;该参数会打印所有的系统参数的值。我们用下面的命令运行程序：</p><p>&emsp;&emsp;之后打开 jvm_flag_final.txt 文件，可以看到有 800 多行，这是因为程序将虚拟机的所有参数都打印了出来。下面列几个我们常用的参数看看就可以：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 运行代码</span></span><br><span class="line">java  -XX:+UseSerialGC -XX:+PrintFlagsFinal com.chenshuyi.ClassLoadDemo  &gt; jvm_flag_final.txt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果</span></span><br><span class="line">uintx InitialHeapSize := <span class="number">134217728</span> &#123;product&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uintx</span> <span class="variable">MaxMetaspaceSize</span> <span class="operator">=</span> <span class="number">18446744073709547520</span> &#123;product&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uintx</span> <span class="variable">MetaspaceSize</span> <span class="operator">=</span> <span class="number">21807104</span> &#123;pd product&#125;</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;从上面我们列出的部分参数可以看到，上面三个参数分别是设置 <code>初始堆大小、元空间最大大小、初始元空间大小</code>  。</p><ul><li><code>-XX:+PrintVMOptions</code> 程序运行时，打印虚拟机接受到的命令行显式参数。</li><li><code>-XX:+PrintCommandLineFlags</code> 打印传递给虚拟机的显式和隐式参数。</li><li><code>-XX:+PrintFlagsFinal</code> 打印所有的系统参数的值</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM 第9讲：JVM参数之堆栈空间配置</title>
+      <link href="/2023/01/02/01-JVM-ch09/"/>
+      <url>/2023/01/02/01-JVM-ch09/</url>
+      
+        <content type="html"><![CDATA[<h1 id="JVM从入门到精通-第9讲-JVM参数之堆栈空间配置"><a href="#JVM从入门到精通-第9讲-JVM参数之堆栈空间配置" class="headerlink" title="JVM从入门到精通 第9讲: JVM参数之堆栈空间配置"></a>JVM从入门到精通 第9讲: JVM参数之堆栈空间配置</h1><blockquote><p><strong><font size=4>前言📝</font></strong></p><p>&emsp;&emsp;JVM 中最重要的一部分就是堆空间了，基本上大多数的线上 JVM 问题都是因为堆空间造成的 <code>OutOfMemoryError</code> 。</p><p>&emsp;&emsp;因此掌握 JVM 关于堆空间的参数配置对于排查线上问题非常重要。</p><p>&emsp;&emsp;<font color=#e82e52 size=2><strong>tips：本文所有配置，如无特别说明，均基于JDK1.8。</strong></font></p></blockquote><h2 id="堆配置"><a href="#堆配置" class="headerlink" title="堆配置"></a>堆配置</h2><p>&emsp;&emsp;我们使用 -Xms 设置堆的初始空间大小，使用 -Xmx 设置堆的最大空间大小。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置 JVM 的初始堆大小为 20M，最大堆空间为 30M</span></span><br><span class="line">java -Xms20m -Xmx30m GCDemo</span><br></pre></td></tr></table></figure><h3 id="年轻代"><a href="#年轻代" class="headerlink" title="年轻代"></a>年轻代</h3><p>&emsp;&emsp;在 JDK1.8 中，堆分为年轻代和老年代。JVM 提供了参数 <code>-Xmn</code> 来设置年轻代内存的大小，但没有提供参数设置老年代的大小。</p><p>&emsp;&emsp;但其实老年代的大小就等于堆大小减去年轻代大小。可通过 <code>-XX:+PrintGCDetails</code> 参数来查看内存区域的分配情况。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  设置 JVM 堆初始大小为20M</span></span><br><span class="line"><span class="comment">  其中年轻代的大小为 10M，剩下老年代 10M</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">java -Xms20m -Xmn10M GCDemo</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看内存分配情况</span></span><br><span class="line">java -Xms20m -Xmn10M -XX:+PrintGCDetails Hello World</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;下图中，我们可以看到老年代的大小为 10M。</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://www.clz-blog.top/01%20jvm-img/jvm-09-01.png"/></div></div><p><br></p><h3 id="Eden区"><a href="#Eden区" class="headerlink" title="Eden区"></a>Eden区</h3><p>&emsp;&emsp;在年轻代中，分为三个区域，分别是：eden 空间、from 空间、to 空间。如果要设置这部分的大小，那么就使用 <code>-XX:SurvivorRatio</code> 这个参数，该参数设置 eden / from 空间的比例关系，该参数的公式如下：</p><p>&emsp;&emsp;<code>-XX:SurvivorRatio = eden/from = eden/to</code></p><p>&emsp;&emsp;例如我们的年轻代有 10 M，而我们设置 <code>-XX:SurvivorRatio</code> 参数为 2。也就是说 <code>eden / from = eden / to = 2</code> 。</p><p>&emsp;&emsp;这里教一个快速计算的方法，我们假设 eden = 2，那么 from = 1，to = 1，那么 eden + from + to = 10M。这样就可以算出每一份大小是 10/4 = 2.5M。所以 Eden 区 = 2.5 * 2 = 5M，from 区是 2.5 M，to 区是 2.5 M。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -Xms20m -Xmn10M -XX:SurvivorRatio=<span class="number">2</span> -XX:+PrintGCDetails GCDemo</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;下图中：eden 空间是 5120 K，from 和 to 空间是 2560 K。</p><p>&emsp;&emsp;还有一个细节，即 PSYoungGen 这里的 total 只有 7680K，难道年轻代只有 7.5M 的内存吗？为什么不是 10M 呢？</p><p>&emsp;&emsp;其实是因为这里的 total 指的是可用内存，from space 和 to space 两个区域，同一时间只有一个区域是可以用的。所以可用内存是 5120 + 2560 = 7680。</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://www.clz-blog.top/01%20jvm-img/jvm-09-02.png"/></div></div><p><br></p><h2 id="永久代（JDK1-7）"><a href="#永久代（JDK1-7）" class="headerlink" title="永久代（JDK1.7）"></a>永久代（JDK1.7）</h2><p>&emsp;&emsp;在 JDK 1.8 之前，所加载的类信息都放在永久代中。</p><ul><li>使用 <code>-XX:PermSize</code> 设置永久代初始大小；</li><li>使用 <code>-XX:MaxPermSize</code> 设置永久代最大大小；</li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置永久代初始大小为 10M，最大大小为 50M</span></span><br><span class="line">java -XX:PermSize10m -XX:MaxPermSize50m -XX:+PrintGCDetails GCDemo</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;下图中，我们可以看到永久代的大小为我们设置的 10M</p><div class="img-wrap"><div class="img-bg"><img class="img" src="https://www.clz-blog.top/01%20jvm-img/jvm-09-03.png"/></div></div><p><br></p><h2 id="元空间（JDK1-8）"><a href="#元空间（JDK1-8）" class="headerlink" title="元空间（JDK1.8）"></a>元空间（JDK1.8）</h2><p>&emsp;&emsp;在 JDK 1.8 之前，所有加载的类信息都放在永久代中。但在 JDK1.8 之时，永久代被移除，取而代之的是元空间（Metaspace）。</p><p>&emsp;&emsp;在元空间这块内存中，有两个参数很相似，它们是： <code>-XX:MetaspaceSize</code> 和 <code>-XX:MaxMetaspaceSize</code> 。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置 MetaspaceSize 为 10M，MaxMetaspaceSize 为 50M</span></span><br><span class="line"><span class="comment">// 并不是设置初始大小和最大大小</span></span><br><span class="line">java -XX:MetaspaceSize=10m -XX:MaxMetaspaceSize=50m -XX:+PrintGCDetails GCDemo</span><br></pre></td></tr></table></figure><div class="img-wrap"><div class="img-bg"><img class="img" src="https://www.clz-blog.top/01%20jvm-img/jvm-09-04.png"/></div></div><p>&emsp;&emsp;从上面的执行结果可以看到，Metaspace 空间的大小为 2.6M 左右，并不是我们设置的 10M。那是因为 <code>MetaspaceSize</code> 设置的是元空间发生 GC 的初始阈值。<br>&emsp;&emsp;当达到这个值时，元空间发生 GC 操作，这个值默认是 20.8M。而 <code>MaxMetaspaceSize</code> 则是设置元空间的最大大小，默认基本是机器的物理内存大小。虽然可以不设置，但还是建议设置一下，因为如果一直不断膨胀，那么 JVM 进程可能会被 OS kill 掉。</p><h2 id="栈空间"><a href="#栈空间" class="headerlink" title="栈空间"></a>栈空间</h2><p>&emsp;&emsp;栈空间是每个线程各自有的一块区域，如果栈空间太小，也会导致 <code>StackOverFlow</code> 异常。而要设置栈空间大小，只需要使用 <code>-Xss</code> 参数就可以。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置最大栈空间为 2M</span></span><br><span class="line">java -Xss2m GCDemo</span><br></pre></td></tr></table></figure><h2 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h2><p>&emsp;&emsp;在 JVM 中还有一块内存，它独立于 JVM 的堆内存，它就是：直接内存。我们可以使用 <code>-XX:MaxDirectMemorySize</code> 设置最大直接内存。如果不设置，默认为最大堆空间，即 -Xmx。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置直接内存最大值为 50M</span></span><br><span class="line">java -XX:MaxDirectMemorySize=50m GCDemo</span><br></pre></td></tr></table></figure><p>&emsp;&emsp;当直接内存使用达到设置值时，就会触发垃圾回收。如果不能有效释放足够空间，就会引发直接内存溢出导致系统的 OOM。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><div class="table-container"><table><thead><tr><th style="text-align:center">参数</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">Xms</td><td style="text-align:center">初始堆大小</td></tr><tr><td style="text-align:center">-Xmx</td><td style="text-align:center">最大堆空间</td></tr><tr><td style="text-align:center">-Xmn</td><td style="text-align:center">设置新生代大小</td></tr><tr><td style="text-align:center">-XX:SurvivorRatio</td><td style="text-align:center">设置新生代eden空间和from/to空间的比例关系</td></tr><tr><td style="text-align:center">-XX:PermSize</td><td style="text-align:center">方法区初始大小</td></tr><tr><td style="text-align:center">-XX:MaxPermSize</td><td style="text-align:center">方法区最大大小</td></tr><tr><td style="text-align:center">-XX:MetaspaceSize</td><td style="text-align:center">元空间GC阈值（JDK1.8）</td></tr><tr><td style="text-align:center">-XX:MaxMetaspaceSize</td><td style="text-align:center">最大元空间大小（JDK1.8）</td></tr><tr><td style="text-align:center">-Xss</td><td style="text-align:center">栈大小</td></tr><tr><td style="text-align:center">-XX:MaxDirectMemorySize</td><td style="text-align:center">直接内存大小，默认为最大堆空间</td></tr></tbody></table></div><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JVM 第8讲：垃圾回收的几种类型</title>
       <link href="/2023/01/01/01-JVM-ch08/"/>
       <url>/2023/01/01/01-JVM-ch08/</url>
@@ -20,7 +145,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -45,7 +170,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -70,7 +195,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -95,7 +220,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -120,7 +245,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -145,7 +270,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -170,7 +295,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -195,7 +320,7 @@
       
         <tags>
             
-            <tag> 标签5 </tag>
+            <tag> 05 面试 </tag>
             
         </tags>
       
@@ -220,7 +345,32 @@
       
         <tags>
             
-            <tag> 标签3 </tag>
+            <tag> 03 微服务框架 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法总结</title>
+      <link href="/2023/01/01/06-Top101-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <url>/2023/01/01/06-Top101-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+      
+        <content type="html"><![CDATA[<h2 id="算法总结"><a href="#算法总结" class="headerlink" title="算法总结"></a>算法总结</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> code </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 06 算法总结 </tag>
             
         </tags>
       
@@ -245,7 +395,7 @@
       
         <tags>
             
-            <tag> 标签4 </tag>
+            <tag> 04 数据库 </tag>
             
         </tags>
       
@@ -270,7 +420,7 @@
       
         <tags>
             
-            <tag> 标签2 </tag>
+            <tag> 02 SSM框架 </tag>
             
         </tags>
       
@@ -295,7 +445,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -320,32 +470,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第二篇文章</title>
-      <link href="/2023/01/01/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2023/01/01/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-      
-        <content type="html"><![CDATA[<h2 id="第二篇文章"><a href="#第二篇文章" class="headerlink" title="第二篇文章"></a>第二篇文章</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> Java </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -370,7 +495,32 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
+            <tag> 01 Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第二篇文章</title>
+      <link href="/2023/01/01/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2023/01/01/%E7%AC%AC%E4%BA%8C%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="第二篇文章"><a href="#第二篇文章" class="headerlink" title="第二篇文章"></a>第二篇文章</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -395,32 +545,7 @@
       
         <tags>
             
-            <tag> 标签1 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>趣味项目实战</title>
-      <link href="/2023/01/01/%E8%B6%A3%E5%91%B3%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/"/>
-      <url>/2023/01/01/%E8%B6%A3%E5%91%B3%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
-      
-        <content type="html"><![CDATA[<h2 id="趣味项目实战"><a href="#趣味项目实战" class="headerlink" title="趣味项目实战"></a>趣味项目实战</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> game </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 06 趣味项目 </tag>
+            <tag> 01 Java </tag>
             
         </tags>
       
@@ -433,10 +558,21 @@
     
     <entry>
       <title></title>
-      <link href="/css/custom.css"/>
-      <url>/css/custom.css</url>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[:root {    --trans-light: rgba(255, 255, 255, 0.80);    --trans-dark: rgba(25, 25, 25, 0.80);    --border-style: 1px solid rgb(169, 169, 169);    --backdrop-filter: blur(8px) saturate(150%);}/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {    -webkit-animation: ccc 4s linear infinite;    animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {    0% {        -webkit-transform: rotate(0deg);        transform: rotate(0deg);    }    to {        -webkit-transform: rotate(-1turn);        transform: rotate(-1turn);    }}@keyframes ccc {    0% {        -webkit-transform: rotate(0deg);        transform: rotate(0deg);    }    to {        -webkit-transform: rotate(-1turn);        transform: rotate(-1turn);    }}/* 设置风车颜色 */#content-inner.layout h1::before {    color: #ef50a8;    margin-left: -1.55rem;    font-size: 1.3rem;    margin-top: -0.23rem;}#content-inner.layout h2::before {    color: #fb7061;    margin-left: -1.35rem;    font-size: 1.1rem;    margin-top: -0.12rem;}#content-inner.layout h3::before {    color: #ffbf00;    margin-left: -1.22rem;    font-size: 0.95rem;    margin-top: -0.09rem;}#content-inner.layout h4::before {    color: #a9e000;    margin-left: -1.05rem;    font-size: 0.8rem;    margin-top: -0.09rem;}#content-inner.layout h5::before {    color: #57c850;    margin-left: -0.9rem;    font-size: 0.7rem;    margin-top: 0rem;}#content-inner.layout h6::before {    color: #5ec1e0;    margin-left: -0.9rem;    font-size: 0.66rem;    margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {    color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {    color: var(--theme-color);    -webkit-animation: ccc 6s linear infinite;    animation: ccc 6s linear infinite;}/* 页脚与头图透明 */#footer {    background: transparent !important;}#page-header {    background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {    background: transparent !important;}#page-header::before {    background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {    background: #1e1e1e;    color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {    background: #3ecdf1;    color: #f2f2f2;}/* 一级菜单居中 */#nav .menus_items {    position: absolute !important;    width: fit-content !important;    left: 50% !important;    transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {    display: flex !important;}/* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */.menus_items .menus_item:nth-child(5) .menus_item_child {    left: -38px;}/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {    text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {    text-shadow: 0 0 2px var(--theme-color) !important;}/* 闪烁变动颜色连续渐变 */#site-name,#site-title,#site-subtitle,#post-info,.author-info__name,.author-info__description {    transition: text-shadow 1s linear !important;}/* 翻页按钮居中 */#pagination {    width: 100%;    margin: auto;}/* 侧边栏个人信息卡片动态渐变色 */#aside-content>.card-widget.card-info {    background: linear-gradient(-45deg,            #e8d8b9,            #eccec5,            #a3e9eb,            #bdbdf0,            #eec1ea);    box-shadow: 0 0 5px rgb(66, 68, 68);    position: relative;    background-size: 400% 400%;    -webkit-animation: Gradient 10s ease infinite;    -moz-animation: Gradient 10s ease infinite;    animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@-moz-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content>.card-widget.card-info {    background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content>.card-widget.card-info>#card-info-btn {    background-color: #3eb8be;    border-radius: 8px;}/* 鼠标样式 */#cursor {    position: fixed;    width: 16px;    height: 16px;    /* 这里改变跟随的底色 */    background: rgb(57, 197, 187);    border-radius: 8px;    opacity: 0.25;    z-index: 10086;    pointer-events: none;    transition: 0.2s ease-in-out;    transition-property: background, opacity, transform;}#cursor.hidden {    opacity: 0;}#cursor.hover {    opacity: 0.1;    transform: scale(2.5);    -webkit-transform: scale(2.5);    -moz-transform: scale(2.5);    -ms-transform: scale(2.5);    -o-transform: scale(2.5);}#cursor.active {    opacity: 0.5;    transform: scale(0.5);    -webkit-transform: scale(0.5);    -moz-transform: scale(0.5);    -ms-transform: scale(0.5);    -o-transform: scale(0.5);}/* 首页文章卡片 */#recent-posts>.recent-post-item {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 25px;    border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 18px;    border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border: var(--border-style);    border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {    background: rgba(255, 255, 255, 0.75);    backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {    background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts>.recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {    background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {    background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {    background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}[data-theme="dark"] .read-mode div#post {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}/* 帧率检测 */#fps {    position: fixed;    /* 指定位置 */    left: 10px;    bottom: 10px;    z-index: 1919810;}[data-theme="light"] #fps {    background-color: rgba(255, 255, 255, 0.85);    backdrop-filter: var(--backdrop-filter);    padding: 4px;    border-radius: 4px;}[data-theme="dark"] #fps {    background-color: rgba(0, 0, 0, 0.72);    backdrop-filter: var(--backdrop-filter);    padding: 4px;    border-radius: 4px;}/* 头像呼吸灯 */[data-theme="light"] .avatar-img {    animation: huxi_light 4s ease-in-out infinite;}[data-theme="dark"] .avatar-img {    animation: huxi_dark 4s ease-in-out infinite;}@keyframes huxi_light {    0% {        box-shadow: 0px 0px 1px 1px #e9f5fa;    }    50% {        box-shadow: 0px 0px 5px 5px #e9f5fa;    }    100% {        box-shadow: 0px 0px 1px 1px #e9f5fa;    }}@keyframes huxi_dark {    0% {        box-shadow: 0px 0px 1px 1px #39c5bb;    }    50% {        box-shadow: 0px 0px 5px 5px #39c5bb;    }    100% {        box-shadow: 0px 0px 1px 1px #39c5bb;    }}/* 个人信息卡片背景图 */[data-theme="light"] #aside-content>.card-widget.card-info {    background-image: url(https://sourcebucket.s3.ladydaily.com/img/snowflower.webp);    background-repeat: no-repeat;    background-attachment: inherit;    background-size: 100%;}[data-theme="dark"] #aside-content>.card-widget.card-info {    background-image: url(https://sourcebucket.s3.ladydaily.com/img/aurora.webp);    background-repeat: no-repeat;    background-attachment: inherit;    background-size: 100%;}/* 信息卡片头像状态 */.card-info-avatar .author-status-box {    position: absolute;    bottom: 0;    left: calc(100% - 28px);    width: 28px;    height: 28px;    border: 1px solid #d0d7de;    border-radius: 2em;    background-color: #f8f8f8f8;    transition: 0.4s;    overflow: hidden;}[data-theme="dark"] .card-info-avatar .author-status-box {    background-color: #222222f2;    border: 1px solid #5c6060;}.card-info-avatar .author-status-box .author-status {    display: flex;    align-items: center;    justify-content: center;    height: 28px;    padding: 0 5px;}.card-info-avatar .author-status-box:hover {    width: 105px;}.card-info-avatar .author-status-box:hover .author-status span {    width: 105px;    margin-left: 4px;}.card-info-avatar .author-status-box .author-status span {    width: 0;    font-size: 12px;    height: 100%;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;    transition: 0.4s;}.card-widget .card-info-avatar {    display: inline-block;    position: relative;}/* 博客宽屏适配（自用） *//* 全局宽度 */.layout {    max-width: 1400px;}/* 侧边卡片栏宽度 */.aside-content {    max-width: 318px;    min-width: 300px;}/* 平板尺寸自适应(不启用侧边栏宽度限制) */@media screen and (max-width: 900px) {    .aside-content {        max-width: none !important;        padding: 0 5px 0 5px;    }}/* 除了首页以外其他页面隐藏卡片，并采用宽屏显示 */#archive,#page,#category,#tag {    width: 100%;}.page:not(.page.home) .aside-content {    display: none;}/* 右键菜单 */#rightMenu {    display: none;    position: fixed;    width: 160px;    height: fit-content;    top: 10%;    left: 10%;    /* 菜单面板背景色 */    background-color: var(--card-bg);    /* 菜单面板文字颜色 */    border: 1px solid var(--font-color);    border-radius: 8px;    z-index: 100;}#rightMenu .rightMenu-group {    padding: 7px 6px;}#rightMenu .rightMenu-group:not(:nth-last-child(1)) {    border-bottom: 1px solid var(--font-color);}#rightMenu .rightMenu-group.rightMenu-small {    display: flex;    justify-content: space-between;}#rightMenu .rightMenu-group .rightMenu-item {    height: 30px;    line-height: 30px;    border-radius: 8px;    transition: 0.3s;    color: var(--font-color);}#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {    display: flex;    height: 40px;    line-height: 40px;    padding: 0 4px;}#rightMenu .rightMenu-group .rightMenu-item:hover {    /* 鼠标悬浮选项颜色 */    background-color: var(--text-bg-hover);}#rightMenu .rightMenu-group .rightMenu-item i {    display: inline-block;    text-align: center;    line-height: 30px;    width: 30px;    height: 30px;    padding: 0 5px;}#rightMenu .rightMenu-group .rightMenu-item span {    line-height: 30px;}#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item * {    height: 40px;    line-height: 40px;}.rightMenu-group.hide {    display: none;}/* 滚动条样式 */::-webkit-scrollbar {    width: 8px;    height: 8px;}::-webkit-scrollbar-track {    background-color: rgba(73, 177, 245, 0.2);    border-radius: 2em;}::-webkit-scrollbar-thumb {    background-color: var(#5ec1e0);    background-image: -webkit-linear-gradient(45deg,            rgba(255, 255, 255, 0.4) 25%,            transparent 25%,            transparent 50%,            rgba(255, 255, 255, 0.4) 50%,            rgba(255, 255, 255, 0.4) 75%,            transparent 75%,            transparent);    border-radius: 2em;}::-webkit-scrollbar-corner {    background-color: transparent;}::-moz-selection {    color: #fff;    background-color: var(#5ec1e0);}/* tzy页脚样式 */#ft {    max-width: 1200px;    margin: 0 auto 12px;    display: flex;    color: rgb(255 255 255 / 80%) !important;    text-align: left;    flex-wrap: wrap;}.ft-item-1,.ft-item-2 {    display: flex;    height: 100%;    padding: 2px 14px;}.ft-item-1 {    flex-direction: column;    flex: 2;}.ft-item-2 {    flex: 1;    flex-direction: column;}.t-top {    display: flex;}.t-top .t-t-l {    display: flex;    flex-direction: column;    flex: 1.4;    margin-right: 10px;}.t-top .t-t-l .bg-ad {    width: 85%;    border-radius: 10px;    padding: 0 10px;}.btn-xz-box {    margin-top: 10px;}/* 按钮背景颜色等 */.btn-xz {    display: block;    background-color: var(--btn-bg);    color: var(--btn-color);    text-align: center;    line-height: 2.4;    margin: 8px 0;}.btn-xz:hover {    text-decoration: none !important;}/* 按钮悬浮颜色 */.btn-xz-box:hover .btn-xz {    background-color: var(--text-bg-hover);}.t-top .t-t-r {    display: flex;    flex-direction: column;    flex: 1;}.ft-links {    padding: 0 14px;    list-style: none;    margin-top: 0 !important;}.ft-links li a {    display: inline-block !important;    width: 50%;}/* 链接悬浮颜色 */.ft-links li a:hover {    text-decoration: none !important;    color: var(--theme-color) !important;}.ft-item-2 .ft-img-group {    width: 100%;}.ft-t {    font-size: 1.1rem;    margin-bottom: 20px;    line-height: 1;    font-weight: 600;}.t-l-t {    padding-left: 14px;}.ft-item-2 .ft-img-group .img-group-item {    display: inline-block;    width: 18.4%;    margin-right: 14px;    margin-bottom: 6px;}.ft-item-2 .ft-img-group .img-group-item a {    display: inline-block;    width: 100%;    height: 100%;}.ft-item-2 .ft-img-group .img-group-item a img {    width: 100%;    max-height: 80px;    border-radius: 10px;}/* 头像悬浮颜色框 */.ft-item-2 .ft-img-group .img-group-item a img:hover {    border: 2px solid var(--theme-color);}@media screen and (max-width: 768px) {    .ft-item-1 {        flex-basis: 100% !important;    }    .ft-item-2 {        flex-basis: 100% !important;    }    .t-top .t-t-l .bg-ad {        width: 100%;    }}@media screen and (max-width: 576px) {    .t-top {        flex-wrap: wrap;    }    .t-top .t-t-l {        flex-basis: 100% !important;    }    .t-top .t-t-r {        margin-top: 16px;        flex-basis: 100% !important;    }}#footer-wrap a {    border-radius: 30px;}#footer-wrap {    padding: 20px 20px;}/* 页脚心跳动画 */#heartbeat {    color: red;    animation: iconAnimate 1s ease-in-out infinite;}@-moz-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@-webkit-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@-o-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}/* 波浪css */.main-hero-waves-area {    width: 100%;    position: absolute;    left: 0;    bottom: -11px;    z-index: 5;}.waves-area .waves-svg {    width: 100%;    height: 5rem;}/* Animation */.parallax>use {    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;}.parallax>use:nth-child(1) {    animation-delay: -2s;    animation-duration: 7s;    fill: #f7f9febd;}.parallax>use:nth-child(2) {    animation-delay: -3s;    animation-duration: 10s;    fill: #f7f9fe82;}.parallax>use:nth-child(3) {    animation-delay: -4s;    animation-duration: 13s;    fill: #f7f9fe36;}.parallax>use:nth-child(4) {    animation-delay: -5s;    animation-duration: 20s;    fill: #f7f9fe;}/* 黑色模式背景 */[data-theme="dark"] .parallax>use:nth-child(1) {    animation-delay: -2s;    animation-duration: 7s;    fill: #18171dc8;}[data-theme="dark"] .parallax>use:nth-child(2) {    animation-delay: -3s;    animation-duration: 10s;    fill: #18171d80;}[data-theme="dark"] .parallax>use:nth-child(3) {    animation-delay: -4s;    animation-duration: 13s;    fill: #18171d3e;}[data-theme="dark"] .parallax>use:nth-child(4) {    animation-delay: -5s;    animation-duration: 20s;    fill: #18171d;}@keyframes move-forever {    0% {        transform: translate3d(-90px, 0, 0);    }    100% {        transform: translate3d(85px, 0, 0);    }}/*Shrinking for mobile*/@media (max-width: 768px) {    .waves-area .waves-svg {        height: 40px;        min-height: 40px;    }}/* 雪花特效 */[data-theme="light"] #snow {    display: block;    position: fixed;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    z-index: -2;}/* 雪花黑夜模式不显示 */[data-theme="dark"] #snow {    display: none;}]]></content>
+        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/css/readPercent.css"/>
+      <url>/css/readPercent.css</url>
+      
+        <content type="html"><![CDATA[/* 返回顶部 */button#go-up #percent {    display: none;    font-weight: bold;    font-size: 15px !important;}button#go-up span {    font-size: 12px !important;    margin-right: -1px;}/* 鼠标滑动到按钮上时显示返回顶部图标 */button#go-up:hover i {    display: block !important;}button#go-up:hover #percent {    display: none !important;}]]></content>
       
     </entry>
     
@@ -446,6 +582,17 @@
       <title>categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -465,17 +612,6 @@
     
     
     <entry>
-      <title>关于</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/js/console.js"/>
       <url>/js/console.js</url>
@@ -488,10 +624,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/readPercent.css"/>
-      <url>/css/readPercent.css</url>
+      <link href="/css/custom.css"/>
+      <url>/css/custom.css</url>
       
-        <content type="html"><![CDATA[/* 返回顶部 */button#go-up #percent {    display: none;    font-weight: bold;    font-size: 15px !important;}button#go-up span {    font-size: 12px !important;    margin-right: -1px;}/* 鼠标滑动到按钮上时显示返回顶部图标 */button#go-up:hover i {    display: block !important;}button#go-up:hover #percent {    display: none !important;}]]></content>
+        <content type="html"><![CDATA[:root {    --trans-light: rgba(255, 255, 255, 0.80);    --trans-dark: rgba(25, 25, 25, 0.80);    --border-style: 1px solid rgb(169, 169, 169);    --backdrop-filter: blur(8px) saturate(150%);}/* 文章页H1-H6图标样式效果 *//* 控制风车转动速度 4s那里可以自己调节快慢 */h1::before,h2::before,h3::before,h4::before,h5::before,h6::before {    -webkit-animation: ccc 4s linear infinite;    animation: ccc 4s linear infinite;}/* 控制风车转动方向 -1turn 为逆时针转动，1turn 为顺时针转动，相同数字部分记得统一修改 */@-webkit-keyframes ccc {    0% {        -webkit-transform: rotate(0deg);        transform: rotate(0deg);    }    to {        -webkit-transform: rotate(-1turn);        transform: rotate(-1turn);    }}@keyframes ccc {    0% {        -webkit-transform: rotate(0deg);        transform: rotate(0deg);    }    to {        -webkit-transform: rotate(-1turn);        transform: rotate(-1turn);    }}/* 设置风车颜色 */#content-inner.layout h1::before {    color: #ef50a8;    margin-left: -1.55rem;    font-size: 1.3rem;    margin-top: -0.23rem;}#content-inner.layout h2::before {    color: #fb7061;    margin-left: -1.35rem;    font-size: 1.1rem;    margin-top: -0.12rem;}#content-inner.layout h3::before {    color: #ffbf00;    margin-left: -1.22rem;    font-size: 0.95rem;    margin-top: -0.09rem;}#content-inner.layout h4::before {    color: #a9e000;    margin-left: -1.05rem;    font-size: 0.8rem;    margin-top: -0.09rem;}#content-inner.layout h5::before {    color: #57c850;    margin-left: -0.9rem;    font-size: 0.7rem;    margin-top: 0rem;}#content-inner.layout h6::before {    color: #5ec1e0;    margin-left: -0.9rem;    font-size: 0.66rem;    margin-top: 0rem;}/* s设置风车hover动效 6s那里可以自己调节快慢*/#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover {    color: var(--theme-color);}#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before {    color: var(--theme-color);    -webkit-animation: ccc 6s linear infinite;    animation: ccc 6s linear infinite;}/* 页脚与头图透明 */#footer {    background: transparent !important;}#page-header {    background: transparent !important;}/* 白天模式遮罩透明 */#footer::before {    background: transparent !important;}#page-header::before {    background: transparent !important;}/* 夜间模式遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 小冰分类分类磁铁黑夜模式适配 *//* 一般状态 */[data-theme="dark"] .magnet_link_context {    background: #1e1e1e;    color: antiquewhite;}/* 鼠标悬浮状态 */[data-theme="dark"] .magnet_link_context:hover {    background: #3ecdf1;    color: #f2f2f2;}/* 一级菜单居中 */#nav .menus_items {    position: absolute !important;    width: fit-content !important;    left: 50% !important;    transform: translateX(-50%) !important;}/* 子菜单横向展示 */#nav .menus_items .menus_item:hover .menus_item_child {    display: flex !important;}/* 这里的2是代表导航栏的第2个元素，即有子菜单的元素，可以按自己需求修改 */.menus_items .menus_item:nth-child(5) .menus_item_child {    left: -38px;}/* 夜间模式菜单栏发光字 */[data-theme="dark"] #nav .site-page,[data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {    text-shadow: 0 0 2px var(--theme-color) !important;}/* 手机端适配 */[data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {    text-shadow: 0 0 2px var(--theme-color) !important;}/* 闪烁变动颜色连续渐变 */#site-name,#site-title,#site-subtitle,#post-info,.author-info__name,.author-info__description {    transition: text-shadow 1s linear !important;}/* 翻页按钮居中 */#pagination {    width: 100%;    margin: auto;}/* 侧边栏个人信息卡片动态渐变色 */#aside-content>.card-widget.card-info {    background: linear-gradient(-45deg,            #e8d8b9,            #eccec5,            #a3e9eb,            #bdbdf0,            #eec1ea);    box-shadow: 0 0 5px rgb(66, 68, 68);    position: relative;    background-size: 400% 400%;    -webkit-animation: Gradient 10s ease infinite;    -moz-animation: Gradient 10s ease infinite;    animation: Gradient 10s ease infinite !important;}@-webkit-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@-moz-keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}@keyframes Gradient {    0% {        background-position: 0% 50%;    }    50% {        background-position: 100% 50%;    }    100% {        background-position: 0% 50%;    }}/* 黑夜模式适配 */[data-theme="dark"] #aside-content>.card-widget.card-info {    background: #191919ee;}/* 个人信息Follow me按钮 */#aside-content>.card-widget.card-info>#card-info-btn {    background-color: #3eb8be;    border-radius: 8px;}/* 鼠标样式 */#cursor {    position: fixed;    width: 16px;    height: 16px;    /* 这里改变跟随的底色 */    background: rgb(57, 197, 187);    border-radius: 8px;    opacity: 0.25;    z-index: 10086;    pointer-events: none;    transition: 0.2s ease-in-out;    transition-property: background, opacity, transform;}#cursor.hidden {    opacity: 0;}#cursor.hover {    opacity: 0.1;    transform: scale(2.5);    -webkit-transform: scale(2.5);    -moz-transform: scale(2.5);    -ms-transform: scale(2.5);    -o-transform: scale(2.5);}#cursor.active {    opacity: 0.5;    transform: scale(0.5);    -webkit-transform: scale(0.5);    -moz-transform: scale(0.5);    -ms-transform: scale(0.5);    -o-transform: scale(0.5);}/* 首页文章卡片 */#recent-posts>.recent-post-item {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 25px;    border: var(--border-style);}/* 首页侧栏卡片 */#aside-content .card-widget {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border-radius: 18px;    border: var(--border-style);}/* 文章页、归档页、普通页面 */div#post,div#page,div#archive {    background: var(--trans-light);    backdrop-filter: var(--backdrop-filter);    border: var(--border-style);    border-radius: 20px;}/* 导航栏 */#page-header.nav-fixed #nav {    background: rgba(255, 255, 255, 0.75);    backdrop-filter: var(--backdrop-filter);}[data-theme="dark"] #page-header.nav-fixed #nav {    background: rgba(0, 0, 0, 0.7) !important;}/* 夜间模式遮罩 */[data-theme="dark"] #recent-posts>.recent-post-item,[data-theme="dark"] #aside-content .card-widget,[data-theme="dark"] div#post,[data-theme="dark"] div#archive,[data-theme="dark"] div#page {    background: var(--trans-dark);}/* 夜间模式页脚页头遮罩透明 */[data-theme="dark"] #footer::before {    background: transparent !important;}[data-theme="dark"] #page-header::before {    background: transparent !important;}/* 阅读模式 */.read-mode #aside-content .card-widget {    background: rgba(158, 204, 171, 0.5) !important;}.read-mode div#post {    background: rgba(158, 204, 171, 0.5) !important;}/* 夜间模式下的阅读模式 */[data-theme="dark"] .read-mode #aside-content .card-widget {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}[data-theme="dark"] .read-mode div#post {    background: rgba(25, 25, 25, 0.9) !important;    color: #ffffff;}/* 帧率检测 */#fps {    position: fixed;    /* 指定位置 */    left: 10px;    bottom: 10px;    z-index: 1919810;}[data-theme="light"] #fps {    background-color: rgba(255, 255, 255, 0.85);    backdrop-filter: var(--backdrop-filter);    padding: 4px;    border-radius: 4px;}[data-theme="dark"] #fps {    background-color: rgba(0, 0, 0, 0.72);    backdrop-filter: var(--backdrop-filter);    padding: 4px;    border-radius: 4px;}/* 头像呼吸灯 */[data-theme="light"] .avatar-img {    animation: huxi_light 4s ease-in-out infinite;}[data-theme="dark"] .avatar-img {    animation: huxi_dark 4s ease-in-out infinite;}@keyframes huxi_light {    0% {        box-shadow: 0px 0px 1px 1px #e9f5fa;    }    50% {        box-shadow: 0px 0px 5px 5px #e9f5fa;    }    100% {        box-shadow: 0px 0px 1px 1px #e9f5fa;    }}@keyframes huxi_dark {    0% {        box-shadow: 0px 0px 1px 1px #39c5bb;    }    50% {        box-shadow: 0px 0px 5px 5px #39c5bb;    }    100% {        box-shadow: 0px 0px 1px 1px #39c5bb;    }}/* 个人信息卡片背景图 */[data-theme="light"] #aside-content>.card-widget.card-info {    background-image: url(https://sourcebucket.s3.ladydaily.com/img/snowflower.webp);    background-repeat: no-repeat;    background-attachment: inherit;    background-size: 100%;}[data-theme="dark"] #aside-content>.card-widget.card-info {    background-image: url(https://sourcebucket.s3.ladydaily.com/img/aurora.webp);    background-repeat: no-repeat;    background-attachment: inherit;    background-size: 100%;}/* 信息卡片头像状态 */.card-info-avatar .author-status-box {    position: absolute;    bottom: 0;    left: calc(100% - 28px);    width: 28px;    height: 28px;    border: 1px solid #d0d7de;    border-radius: 2em;    background-color: #f8f8f8f8;    transition: 0.4s;    overflow: hidden;}[data-theme="dark"] .card-info-avatar .author-status-box {    background-color: #222222f2;    border: 1px solid #5c6060;}.card-info-avatar .author-status-box .author-status {    display: flex;    align-items: center;    justify-content: center;    height: 28px;    padding: 0 5px;}.card-info-avatar .author-status-box:hover {    width: 105px;}.card-info-avatar .author-status-box:hover .author-status span {    width: 105px;    margin-left: 4px;}.card-info-avatar .author-status-box .author-status span {    width: 0;    font-size: 12px;    height: 100%;    overflow: hidden;    text-overflow: ellipsis;    white-space: nowrap;    transition: 0.4s;}.card-widget .card-info-avatar {    display: inline-block;    position: relative;}/* 博客宽屏适配（自用） *//* 全局宽度 */.layout {    max-width: 1400px;}/* 侧边卡片栏宽度 */.aside-content {    max-width: 318px;    min-width: 300px;}/* 平板尺寸自适应(不启用侧边栏宽度限制) */@media screen and (max-width: 900px) {    .aside-content {        max-width: none !important;        padding: 0 5px 0 5px;    }}/* 除了首页以外其他页面隐藏卡片，并采用宽屏显示 */#archive,#page,#category,#tag {    width: 100%;}.page:not(.page.home) .aside-content {    display: none;}/* 右键菜单 */#rightMenu {    display: none;    position: fixed;    width: 160px;    height: fit-content;    top: 10%;    left: 10%;    /* 菜单面板背景色 */    background-color: var(--card-bg);    /* 菜单面板文字颜色 */    border: 1px solid var(--font-color);    border-radius: 8px;    z-index: 100;}#rightMenu .rightMenu-group {    padding: 7px 6px;}#rightMenu .rightMenu-group:not(:nth-last-child(1)) {    border-bottom: 1px solid var(--font-color);}#rightMenu .rightMenu-group.rightMenu-small {    display: flex;    justify-content: space-between;}#rightMenu .rightMenu-group .rightMenu-item {    height: 30px;    line-height: 30px;    border-radius: 8px;    transition: 0.3s;    color: var(--font-color);}#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {    display: flex;    height: 40px;    line-height: 40px;    padding: 0 4px;}#rightMenu .rightMenu-group .rightMenu-item:hover {    /* 鼠标悬浮选项颜色 */    background-color: var(--text-bg-hover);}#rightMenu .rightMenu-group .rightMenu-item i {    display: inline-block;    text-align: center;    line-height: 30px;    width: 30px;    height: 30px;    padding: 0 5px;}#rightMenu .rightMenu-group .rightMenu-item span {    line-height: 30px;}#rightMenu .rightMenu-group.rightMenu-line .rightMenu-item * {    height: 40px;    line-height: 40px;}.rightMenu-group.hide {    display: none;}/* 滚动条样式 */::-webkit-scrollbar {    width: 8px;    height: 8px;}::-webkit-scrollbar-track {    background-color: rgba(73, 177, 245, 0.2);    border-radius: 2em;}::-webkit-scrollbar-thumb {    background-color: var(#5ec1e0);    background-image: -webkit-linear-gradient(45deg,            rgba(255, 255, 255, 0.4) 25%,            transparent 25%,            transparent 50%,            rgba(255, 255, 255, 0.4) 50%,            rgba(255, 255, 255, 0.4) 75%,            transparent 75%,            transparent);    border-radius: 2em;}::-webkit-scrollbar-corner {    background-color: transparent;}::-moz-selection {    color: #fff;    background-color: var(#5ec1e0);}/* tzy页脚样式 */#ft {    max-width: 1200px;    margin: 0 auto 12px;    display: flex;    color: rgb(255 255 255 / 80%) !important;    text-align: left;    flex-wrap: wrap;}.ft-item-1,.ft-item-2 {    display: flex;    height: 100%;    padding: 2px 14px;}.ft-item-1 {    flex-direction: column;    flex: 2;}.ft-item-2 {    flex: 1;    flex-direction: column;}.t-top {    display: flex;}.t-top .t-t-l {    display: flex;    flex-direction: column;    flex: 1.4;    margin-right: 10px;}.t-top .t-t-l .bg-ad {    width: 85%;    border-radius: 10px;    padding: 0 10px;}.btn-xz-box {    margin-top: 10px;}/* 按钮背景颜色等 */.btn-xz {    display: block;    background-color: var(--btn-bg);    color: var(--btn-color);    text-align: center;    line-height: 2.4;    margin: 8px 0;}.btn-xz:hover {    text-decoration: none !important;}/* 按钮悬浮颜色 */.btn-xz-box:hover .btn-xz {    background-color: var(--text-bg-hover);}.t-top .t-t-r {    display: flex;    flex-direction: column;    flex: 1;}.ft-links {    padding: 0 14px;    list-style: none;    margin-top: 0 !important;}.ft-links li a {    display: inline-block !important;    width: 50%;}/* 链接悬浮颜色 */.ft-links li a:hover {    text-decoration: none !important;    color: var(--theme-color) !important;}.ft-item-2 .ft-img-group {    width: 100%;}.ft-t {    font-size: 1.1rem;    margin-bottom: 20px;    line-height: 1;    font-weight: 600;}.t-l-t {    padding-left: 14px;}.ft-item-2 .ft-img-group .img-group-item {    display: inline-block;    width: 18.4%;    margin-right: 14px;    margin-bottom: 6px;}.ft-item-2 .ft-img-group .img-group-item a {    display: inline-block;    width: 100%;    height: 100%;}.ft-item-2 .ft-img-group .img-group-item a img {    width: 100%;    max-height: 80px;    border-radius: 10px;}/* 头像悬浮颜色框 */.ft-item-2 .ft-img-group .img-group-item a img:hover {    border: 2px solid var(--theme-color);}@media screen and (max-width: 768px) {    .ft-item-1 {        flex-basis: 100% !important;    }    .ft-item-2 {        flex-basis: 100% !important;    }    .t-top .t-t-l .bg-ad {        width: 100%;    }}@media screen and (max-width: 576px) {    .t-top {        flex-wrap: wrap;    }    .t-top .t-t-l {        flex-basis: 100% !important;    }    .t-top .t-t-r {        margin-top: 16px;        flex-basis: 100% !important;    }}#footer-wrap a {    border-radius: 30px;}#footer-wrap {    padding: 20px 20px;}/* 页脚心跳动画 */#heartbeat {    color: red;    animation: iconAnimate 1s ease-in-out infinite;}@-moz-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@-webkit-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@-o-keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}@keyframes iconAnimate {    0%,    100% {        transform: scale(1);    }    10%,    30% {        transform: scale(0.9);    }    20%,    40%,    60%,    80% {        transform: scale(1.1);    }    50%,    70% {        transform: scale(1.1);    }}/* 波浪css */.main-hero-waves-area {    width: 100%;    position: absolute;    left: 0;    bottom: -11px;    z-index: 5;}.waves-area .waves-svg {    width: 100%;    height: 5rem;}/* Animation */.parallax>use {    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;}.parallax>use:nth-child(1) {    animation-delay: -2s;    animation-duration: 7s;    fill: #f7f9febd;}.parallax>use:nth-child(2) {    animation-delay: -3s;    animation-duration: 10s;    fill: #f7f9fe82;}.parallax>use:nth-child(3) {    animation-delay: -4s;    animation-duration: 13s;    fill: #f7f9fe36;}.parallax>use:nth-child(4) {    animation-delay: -5s;    animation-duration: 20s;    fill: #f7f9fe;}/* 黑色模式背景 */[data-theme="dark"] .parallax>use:nth-child(1) {    animation-delay: -2s;    animation-duration: 7s;    fill: #18171dc8;}[data-theme="dark"] .parallax>use:nth-child(2) {    animation-delay: -3s;    animation-duration: 10s;    fill: #18171d80;}[data-theme="dark"] .parallax>use:nth-child(3) {    animation-delay: -4s;    animation-duration: 13s;    fill: #18171d3e;}[data-theme="dark"] .parallax>use:nth-child(4) {    animation-delay: -5s;    animation-duration: 20s;    fill: #18171d;}@keyframes move-forever {    0% {        transform: translate3d(-90px, 0, 0);    }    100% {        transform: translate3d(85px, 0, 0);    }}/*Shrinking for mobile*/@media (max-width: 768px) {    .waves-area .waves-svg {        height: 40px;        min-height: 40px;    }}/* 雪花特效 */[data-theme="light"] #snow {    display: block;    position: fixed;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    z-index: -2;}/* 雪花黑夜模式不显示 */[data-theme="dark"] #snow {    display: none;}]]></content>
       
     </entry>
     
@@ -510,17 +646,6 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
-      
-        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/js/day.js"/>
       <url>/js/day.js</url>
       
@@ -532,21 +657,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/runtime-copy.js"/>
-      <url>/js/runtime-copy.js</url>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
       
-        <content type="html"><![CDATA[var now = new Date;function createtime() {    now.setTime(now.getTime() + 1e3);    var e = new Date("08/01/2022 00:00:00"),        t = Math.trunc(234e8 + (now - e) / 1e3 * 17),        a = (t / 1496e5)            .toFixed(6),        o = new Date("08/09/2022 00:00:00"),        n = (now - o) / 1e3 / 60 / 60 / 24,        r = Math.floor(n),        i = (now - o) / 1e3 / 60 / 60 - 24 * r,        s = Math.floor(i);    1 == String(s)        .length && (s = "0" + s);    var d = (now - o) / 1e3 / 60 - 1440 * r - 60 * s,        l = Math.floor(d);    1 == String(l)        .length && (l = "0" + l);    var g = (now - o) / 1e3 - 86400 * r - 3600 * s - 60 * l,        b = Math.round(g);    1 == String(b)        .length && (b = "0" + b);    let c = "";    c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>` : `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`, document.getElementById("workboard") && (document.getElementById("workboard")        .innerHTML = c)}setInterval((() => {    createtime()}), 1e3);]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/fps.js"/>
-      <url>/js/fps.js</url>
-      
-        <content type="html"><![CDATA[if (window.localStorage.getItem("fpson") == undefined || window.localStorage.getItem("fpson") == "1") {    var rAF = function () {        return (            window.requestAnimationFrame ||            window.webkitRequestAnimationFrame ||            function (callback) {                window.setTimeout(callback, 1000 / 60);            }        );    }();    var frame = 0;    var allFrameCount = 0;    var lastTime = Date.now();    var lastFameTime = Date.now();    var loop = function () {        var now = Date.now();        var fs = (now - lastFameTime);        var fps = Math.round(1000 / fs);        lastFameTime = now;        // 不置 0，在动画的开头及结尾记录此值的差值算出 FPS        allFrameCount++;        frame++;        if (now > 1000 + lastTime) {            var fps = Math.round((frame * 1000) / (now - lastTime));            if (fps <= 5) {                var kd = `<span style="color:#bd0000">卡成ppt🤢</span>`            } else if (fps <= 15) {                var kd = `<span style="color:red">电竞级帧率😖</span>`            } else if (fps <= 25) {                var kd = `<span style="color:orange">有点难受😨</span>`            } else if (fps < 35) {                var kd = `<span style="color:#9338e6">不太流畅🙄</span>`            } else if (fps <= 45) {                var kd = `<span style="color:#08b7e4">还不错哦😁</span>`            } else {                var kd = `<span style="color:#39c5bb">十分流畅🤣</span>`            }            document.getElementById("fps").innerHTML = `FPS:${fps} ${kd}`;            frame = 0;            lastTime = now;        };        rAF(loop);    }    loop();} else {    document.getElementById("fps").style = "display:none!important"}]]></content>
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {        }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {        }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
       
     </entry>
     
@@ -576,10 +690,32 @@
     
     <entry>
       <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
+      <link href="/js/fps.js"/>
+      <url>/js/fps.js</url>
       
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {        }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {        }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+        <content type="html"><![CDATA[if (window.localStorage.getItem("fpson") == undefined || window.localStorage.getItem("fpson") == "1") {    var rAF = function () {        return (            window.requestAnimationFrame ||            window.webkitRequestAnimationFrame ||            function (callback) {                window.setTimeout(callback, 1000 / 60);            }        );    }();    var frame = 0;    var allFrameCount = 0;    var lastTime = Date.now();    var lastFameTime = Date.now();    var loop = function () {        var now = Date.now();        var fs = (now - lastFameTime);        var fps = Math.round(1000 / fs);        lastFameTime = now;        // 不置 0，在动画的开头及结尾记录此值的差值算出 FPS        allFrameCount++;        frame++;        if (now > 1000 + lastTime) {            var fps = Math.round((frame * 1000) / (now - lastTime));            if (fps <= 5) {                var kd = `<span style="color:#bd0000">卡成ppt🤢</span>`            } else if (fps <= 15) {                var kd = `<span style="color:red">电竞级帧率😖</span>`            } else if (fps <= 25) {                var kd = `<span style="color:orange">有点难受😨</span>`            } else if (fps < 35) {                var kd = `<span style="color:#9338e6">不太流畅🙄</span>`            } else if (fps <= 45) {                var kd = `<span style="color:#08b7e4">还不错哦😁</span>`            } else {                var kd = `<span style="color:#39c5bb">十分流畅🤣</span>`            }            document.getElementById("fps").innerHTML = `FPS:${fps} ${kd}`;            frame = 0;            lastTime = now;        };        rAF(loop);    }    loop();} else {    document.getElementById("fps").style = "display:none!important"}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/js/snow.js"/>
+      <url>/js/snow.js</url>
+      
+        <content type="html"><![CDATA[if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {    // 移动端不显示} else {    // document.write('<canvas id="snow" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;pointer-events:none"></canvas>');    window && (() => {        let e = {            flakeCount: 50, // 雪花数目            minDist: 150,   // 最小距离            color: "255, 255, 255", // 雪花颜色            size: 1.5,  // 雪花大小            speed: .5,  // 雪花速度            opacity: .7,    // 雪花透明度            stepsize: .5    // 步距        };        const t = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (e) {            window.setTimeout(e, 1e3 / 60)        }            ;        window.requestAnimationFrame = t;        const i = document.getElementById("snow"),            n = i.getContext("2d"),            o = e.flakeCount;        let a = -100,            d = -100,            s = [];        i.width = window.innerWidth,            i.height = window.innerHeight;        const h = () => {            n.clearRect(0, 0, i.width, i.height);            const r = e.minDist;            for (let t = 0; t < o; t++) {                let o = s[t];                const h = a,                    w = d,                    m = o.x,                    c = o.y,                    p = Math.sqrt((h - m) * (h - m) + (w - c) * (w - c));                if (p < r) {                    const e = (h - m) / p,                        t = (w - c) / p,                        i = r / (p * p) / 2;                    o.velX -= i * e,                        o.velY -= i * t                } else                    o.velX *= .98,                        o.velY < o.speed && o.speed - o.velY > .01 && (o.velY += .01 * (o.speed - o.velY)),                        o.velX += Math.cos(o.step += .05) * o.stepSize;                n.fillStyle = "rgba(" + e.color + ", " + o.opacity + ")",                    o.y += o.velY,                    o.x += o.velX,                    (o.y >= i.height || o.y <= 0) && l(o),                    (o.x >= i.width || o.x <= 0) && l(o),                    n.beginPath(),                    n.arc(o.x, o.y, o.size, 0, 2 * Math.PI),                    n.fill()            }            t(h)        }            , l = e => {                e.x = Math.floor(Math.random() * i.width),                    e.y = 0,                    e.size = 3 * Math.random() + 2,                    e.speed = 1 * Math.random() + .5,                    e.velY = e.speed,                    e.velX = 0,                    e.opacity = .5 * Math.random() + .3            }            ;        document.addEventListener("mousemove", (e => {            a = e.clientX,                d = e.clientY        }        )),            window.addEventListener("resize", (() => {                i.width = window.innerWidth,                    i.height = window.innerHeight            }            )),            (() => {                for (let t = 0; t < o; t++) {                    const t = Math.floor(Math.random() * i.width)                        , n = Math.floor(Math.random() * i.height)                        , o = 3 * Math.random() + e.size                        , a = 1 * Math.random() + e.speed                        , d = .5 * Math.random() + e.opacity;                    s.push({                        speed: a,                        velX: 0,                        velY: a,                        x: t,                        y: n,                        size: o,                        stepSize: Math.random() / 30 * e.stepsize,                        step: 0,                        angle: 180,                        opacity: d                    })                }                h()            }            )()    }    )();}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<!-- GitCalendar容器 --><div id="gitZone"></div>]]></content>
       
     </entry>
     
@@ -598,17 +734,6 @@
     
     <entry>
       <title></title>
-      <link href="/js/title.js"/>
-      <url>/js/title.js</url>
-      
-        <content type="html"><![CDATA[//动态标题var OriginTitile = document.title;var titleTime;document.addEventListener('visibilitychange', function () {    if (document.hidden) {        //离开当前页面时标签显示内容        document.title = '👀跑哪里去了~';        clearTimeout(titleTime);    } else {        //返回当前页面时标签显示内容        document.title = '🐖抓到你啦～';        //两秒后变回正常标题        titleTime = setTimeout(function () {            document.title = OriginTitile;        }, 2000);    }});]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
       <link href="/js/universe.js"/>
       <url>/js/universe.js</url>
       
@@ -620,10 +745,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/snow.js"/>
-      <url>/js/snow.js</url>
+      <link href="/js/title.js"/>
+      <url>/js/title.js</url>
       
-        <content type="html"><![CDATA[if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {    // 移动端不显示} else {    // document.write('<canvas id="snow" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-2;pointer-events:none"></canvas>');    window && (() => {        let e = {            flakeCount: 50, // 雪花数目            minDist: 150,   // 最小距离            color: "255, 255, 255", // 雪花颜色            size: 1.5,  // 雪花大小            speed: .5,  // 雪花速度            opacity: .7,    // 雪花透明度            stepsize: .5    // 步距        };        const t = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function (e) {            window.setTimeout(e, 1e3 / 60)        }            ;        window.requestAnimationFrame = t;        const i = document.getElementById("snow"),            n = i.getContext("2d"),            o = e.flakeCount;        let a = -100,            d = -100,            s = [];        i.width = window.innerWidth,            i.height = window.innerHeight;        const h = () => {            n.clearRect(0, 0, i.width, i.height);            const r = e.minDist;            for (let t = 0; t < o; t++) {                let o = s[t];                const h = a,                    w = d,                    m = o.x,                    c = o.y,                    p = Math.sqrt((h - m) * (h - m) + (w - c) * (w - c));                if (p < r) {                    const e = (h - m) / p,                        t = (w - c) / p,                        i = r / (p * p) / 2;                    o.velX -= i * e,                        o.velY -= i * t                } else                    o.velX *= .98,                        o.velY < o.speed && o.speed - o.velY > .01 && (o.velY += .01 * (o.speed - o.velY)),                        o.velX += Math.cos(o.step += .05) * o.stepSize;                n.fillStyle = "rgba(" + e.color + ", " + o.opacity + ")",                    o.y += o.velY,                    o.x += o.velX,                    (o.y >= i.height || o.y <= 0) && l(o),                    (o.x >= i.width || o.x <= 0) && l(o),                    n.beginPath(),                    n.arc(o.x, o.y, o.size, 0, 2 * Math.PI),                    n.fill()            }            t(h)        }            , l = e => {                e.x = Math.floor(Math.random() * i.width),                    e.y = 0,                    e.size = 3 * Math.random() + 2,                    e.speed = 1 * Math.random() + .5,                    e.velY = e.speed,                    e.velX = 0,                    e.opacity = .5 * Math.random() + .3            }            ;        document.addEventListener("mousemove", (e => {            a = e.clientX,                d = e.clientY        }        )),            window.addEventListener("resize", (() => {                i.width = window.innerWidth,                    i.height = window.innerHeight            }            )),            (() => {                for (let t = 0; t < o; t++) {                    const t = Math.floor(Math.random() * i.width)                        , n = Math.floor(Math.random() * i.height)                        , o = 3 * Math.random() + e.size                        , a = 1 * Math.random() + e.speed                        , d = .5 * Math.random() + e.opacity;                    s.push({                        speed: a,                        velX: 0,                        velY: a,                        x: t,                        y: n,                        size: o,                        stepSize: Math.random() / 30 * e.stepsize,                        step: 0,                        angle: 180,                        opacity: d                    })                }                h()            }            )()    }    )();}]]></content>
+        <content type="html"><![CDATA[//动态标题var OriginTitile = document.title;var titleTime;document.addEventListener('visibilitychange', function () {    if (document.hidden) {        //离开当前页面时标签显示内容        document.title = '👀跑哪里去了~';        clearTimeout(titleTime);    } else {        //返回当前页面时标签显示内容        document.title = '🐖抓到你啦～';        //两秒后变回正常标题        titleTime = setTimeout(function () {            document.title = OriginTitile;        }, 2000);    }});]]></content>
       
     </entry>
     
@@ -641,20 +766,20 @@
     
     
     <entry>
-      <title>音乐</title>
-      <link href="/music/index.html"/>
-      <url>/music/index.html</url>
+      <title></title>
+      <link href="/js/runtime-copy.js"/>
+      <url>/js/runtime-copy.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[var now = new Date;function createtime() {    now.setTime(now.getTime() + 1e3);    var e = new Date("08/01/2022 00:00:00"),        t = Math.trunc(234e8 + (now - e) / 1e3 * 17),        a = (t / 1496e5)            .toFixed(6),        o = new Date("08/09/2022 00:00:00"),        n = (now - o) / 1e3 / 60 / 60 / 24,        r = Math.floor(n),        i = (now - o) / 1e3 / 60 / 60 - 24 * r,        s = Math.floor(i);    1 == String(s)        .length && (s = "0" + s);    var d = (now - o) / 1e3 / 60 - 1440 * r - 60 * s,        l = Math.floor(d);    1 == String(l)        .length && (l = "0" + l);    var g = (now - o) / 1e3 - 86400 * r - 3600 * s - 60 * l,        b = Math.round(g);    1 == String(b)        .length && (b = "0" + b);    let c = "";    c = s < 18 && s >= 9 ? `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>` : `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${r} 天 ${s} 小时 ${l} 分 ${b} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${t} 千米，约为 ${a} 个天文单位 🚀</div>`, document.getElementById("workboard") && (document.getElementById("workboard")        .innerHTML = c)}setInterval((() => {    createtime()}), 1e3);]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>音乐</title>
+      <link href="/music/index.html"/>
+      <url>/music/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
