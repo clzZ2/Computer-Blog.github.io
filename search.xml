@@ -582,17 +582,6 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>关于</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -604,22 +593,11 @@
     
     
     <entry>
-      <title>友链</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title></title>
-      <link href="/js/card_weibo.js"/>
-      <url>/js/card_weibo.js</url>
-      
-        <content type="html"><![CDATA[fetch('https://www.clz-blog.top/api').then(data => data.json()).then(data => {    let html = '<style>.weibo-new{background:#ff3852}.weibo-hot{background:#ff9406}.weibo-jyzy{background:#ffc000}.weibo-recommend{background:#00b7ee}.weibo-adrecommend{background:#febd22}.weibo-friend{background:#8fc21e}.weibo-boom{background:#bd0000}.weibo-topic{background:#ff6f49}.weibo-topic-ad{background:#4dadff}.weibo-boil{background:#f86400}#weibo-container{overflow-y:auto;-ms-overflow-style:none;scrollbar-width:none}#weibo-container::-webkit-scrollbar{display:none}.weibo-list-item{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:nowrap}.weibo-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto}.weibo-num{float:right}.weibo-hotness{display:inline-block;padding:0 6px;transform:scale(.8) translateX(-3px);color:#fff;border-radius:8px}</style>'    html += '<div class="weibo-list">'    let hotness = {        '爆': 'weibo-boom',        '热': 'weibo-hot',        '沸': 'weibo-boil',        '新': 'weibo-new',        '荐': 'weibo-recommend',        '音': 'weibo-jyzy',        '影': 'weibo-jyzy',        '剧': 'weibo-jyzy',        '综': 'weibo-jyzy'    }    for (let item of data) {        html += '<div class="weibo-list-item"><div class="weibo-hotness ' + hotness[(item.hot || '荐')] + '">' + (item.hot || '荐') + '</div>'            + '<span class="weibo-title"><a title="' + item.title + '"href="' + item.url + '" target="_blank" rel="external nofollow noreferrer">' + item.title + '</a></span>'            + '<div class="weibo-num"><span>' + item.num + '</span></div></div>'    }    html += '</div>'    document.getElementById('weibo-container').innerHTML = html}).catch(function (error) {    console.log(error);});]]></content>
       
     </entry>
     
@@ -638,10 +616,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/readPercent.css"/>
-      <url>/css/readPercent.css</url>
+      <link href="/css/universe.css"/>
+      <url>/css/universe.css</url>
       
-        <content type="html"><![CDATA[/* 返回顶部 */button#go-up #percent {    display: none;    font-weight: bold;    font-size: 15px !important;}button#go-up span {    font-size: 12px !important;    margin-right: -1px;}/* 鼠标滑动到按钮上时显示返回顶部图标 */button#go-up:hover i {    display: block !important;}button#go-up:hover #percent {    display: none !important;}]]></content>
+        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
       
     </entry>
     
@@ -649,10 +627,10 @@
     
     <entry>
       <title></title>
-      <link href="/css/universe.css"/>
-      <url>/css/universe.css</url>
+      <link href="/js/card_weibo.js"/>
+      <url>/js/card_weibo.js</url>
       
-        <content type="html"><![CDATA[/* 背景宇宙星光  */#universe {    display: block;    position: fixed;    margin: 0;    padding: 0;    border: 0;    outline: 0;    left: 0;    top: 0;    width: 100%;    height: 100%;    pointer-events: none;    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */    z-index: -1;}]]></content>
+        <content type="html"><![CDATA[fetch('https://www.clz-blog.top/api').then(data => data.json()).then(data => {    let html = '<style>.weibo-new{background:#ff3852}.weibo-hot{background:#ff9406}.weibo-jyzy{background:#ffc000}.weibo-recommend{background:#00b7ee}.weibo-adrecommend{background:#febd22}.weibo-friend{background:#8fc21e}.weibo-boom{background:#bd0000}.weibo-topic{background:#ff6f49}.weibo-topic-ad{background:#4dadff}.weibo-boil{background:#f86400}#weibo-container{overflow-y:auto;-ms-overflow-style:none;scrollbar-width:none}#weibo-container::-webkit-scrollbar{display:none}.weibo-list-item{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:nowrap}.weibo-title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-right:auto}.weibo-num{float:right}.weibo-hotness{display:inline-block;padding:0 6px;transform:scale(.8) translateX(-3px);color:#fff;border-radius:8px}</style>'    html += '<div class="weibo-list">'    let hotness = {        '爆': 'weibo-boom',        '热': 'weibo-hot',        '沸': 'weibo-boil',        '新': 'weibo-new',        '荐': 'weibo-recommend',        '音': 'weibo-jyzy',        '影': 'weibo-jyzy',        '剧': 'weibo-jyzy',        '综': 'weibo-jyzy'    }    for (let item of data) {        html += '<div class="weibo-list-item"><div class="weibo-hotness ' + hotness[(item.hot || '荐')] + '">' + (item.hot || '荐') + '</div>'            + '<span class="weibo-title"><a title="' + item.title + '"href="' + item.url + '" target="_blank" rel="external nofollow noreferrer">' + item.title + '</a></span>'            + '<div class="weibo-num"><span>' + item.num + '</span></div></div>'    }    html += '</div>'    document.getElementById('weibo-container').innerHTML = html}).catch(function (error) {    console.log(error);});]]></content>
       
     </entry>
     
@@ -682,10 +660,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/day.js"/>
-      <url>/js/day.js</url>
+      <link href="/css/readPercent.css"/>
+      <url>/css/readPercent.css</url>
       
-        <content type="html"><![CDATA[var d = new Date();m = d.getMonth() + 1;dd = d.getDate();y = d.getFullYear();// 公祭日if (m == 9 && dd == 18) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是九一八事变" + (y - 1931).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 7 && dd == 7) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是卢沟桥事变" + (y - 1937).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 12 && dd == 13) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是南京大屠杀" + (y - 1937).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 8 && dd == 14) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是世界慰安妇纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}// 节假日if (m == 10 && dd <= 3) {//国庆节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("祝祖国" + (y - 1949).toString() + "岁生日快乐！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 8 && dd == 15) {//搞来玩的，小日子投降    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("小日子已经投降" + (y - 1945).toString() + "年了😃");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 1 && dd == 1) {//元旦节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(y.toString() + "年元旦快乐！🎉");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 3 && dd == 8) {//妇女节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("各位女神们，妇女节快乐！👩");        sessionStorage.setItem("isPopupWindow", "1");    }}l = ["非常抱歉，因为不可控原因，博客将于明天停止运营！", "好消息，日本没了！", "美国垮了，原因竟然是川普！", "微软垮了！", "你的电脑已经过载，建议立即关机！", "你知道吗？站长很喜欢你哦！", "一分钟有61秒哦", "你喜欢的人跟别人跑了！"]if (m == 4 && dd == 1) {//愚人节，随机谎话    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(l[Math.floor(Math.random() * l.length)]);        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 1) {//劳动节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("劳动节快乐\n为各行各业辛勤工作的人们致敬！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 4) {//青年节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("青年节快乐\n青春不是回忆逝去,而是把握现在！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 20) {//520    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今年是520情人节\n快和你喜欢的人一起过吧！💑");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 7 && dd == 1) {//建党节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("祝中国共产党" + (y - 1921).toString() + "岁生日快乐！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 9 && dd == 10) {//教师节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("各位老师们教师节快乐！👩‍🏫");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 12 && dd == 25) {//圣诞节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("圣诞节快乐！🎄");        sessionStorage.setItem("isPopupWindow", "1");    }}//传统节日部分if ((y == 2023 && m == 4 && dd == 5) || (y == 2024 && m == 4 && dd == 4) || (y == 2025 && m == 4 && dd == 4)) {//清明节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("清明时节雨纷纷,一束鲜花祭故人💐");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((y == 2023 && m == 12 && dd == 22) || (y == 2024 && m == 12 && dd == 21) || (y == 2025 && m == 12 && dd == 21)) {//冬至    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("冬至快乐\n快吃上一碗热热的汤圆和饺子吧🧆");        sessionStorage.setItem("isPopupWindow", "1");    }}var lunar = calendarFormatter.solar2lunar();//农历采用汉字计算，防止出现闰月导致问题if ((lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初六") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初五") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初四") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初三") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初二") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初一") || (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "三十") || (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "廿九")) {    //春节，本来只有大年三十到初六，但是有时候除夕是大年二十九，所以也加上了    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(y.toString() + "年新年快乐\n🎊祝你心想事成，诸事顺利🎊");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "十五")) {    //元宵节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("元宵节快乐\n送你一个大大的灯笼🧅");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "五月" && lunar["IDayCn"] == "初五")) {    //端午节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("端午节快乐\n请你吃一条粽子🍙");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "七月" && lunar["IDayCn"] == "初七")) {    //七夕节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("七夕节快乐\n黄昏后,柳梢头,牛郎织女来碰头");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "八月" && lunar["IDayCn"] == "十五")) {    //中秋节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("中秋节快乐\n请你吃一块月饼🍪");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "九月" && lunar["IDayCn"] == "初九")) {    //重阳节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("重阳节快乐\n独在异乡为异客，每逢佳节倍思亲");        sessionStorage.setItem("isPopupWindow", "1");    }}// 切换主题提醒// if (y == 2022 && m == 12 && (dd >= 18 && dd <= 20)) {//     if (sessionStorage.getItem("isPopupWindow") != "1") {//         Swal.fire("网站换成冬日限定主题啦⛄");//         sessionStorage.setItem("isPopupWindow", "1");//     }// }]]></content>
+        <content type="html"><![CDATA[/* 返回顶部 */button#go-up #percent {    display: none;    font-weight: bold;    font-size: 15px !important;}button#go-up span {    font-size: 12px !important;    margin-right: -1px;}/* 鼠标滑动到按钮上时显示返回顶部图标 */button#go-up:hover i {    display: block !important;}button#go-up:hover #percent {    display: none !important;}]]></content>
       
     </entry>
     
@@ -704,10 +682,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/light.js"/>
-      <url>/js/light.js</url>
+      <link href="/js/day.js"/>
+      <url>/js/day.js</url>
       
-        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {        }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {        }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
+        <content type="html"><![CDATA[var d = new Date();m = d.getMonth() + 1;dd = d.getDate();y = d.getFullYear();// 公祭日if (m == 9 && dd == 18) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是九一八事变" + (y - 1931).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 7 && dd == 7) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是卢沟桥事变" + (y - 1937).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 12 && dd == 13) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是南京大屠杀" + (y - 1937).toString() + "周年纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 8 && dd == 14) {    document.getElementsByTagName("html")[0].setAttribute("style", "filter: grayscale(60%);");    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今天是世界慰安妇纪念日\n🪔勿忘国耻，振兴中华🪔");        sessionStorage.setItem("isPopupWindow", "1");    }}// 节假日if (m == 10 && dd <= 3) {//国庆节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("祝祖国" + (y - 1949).toString() + "岁生日快乐！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 8 && dd == 15) {//搞来玩的，小日子投降    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("小日子已经投降" + (y - 1945).toString() + "年了😃");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 1 && dd == 1) {//元旦节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(y.toString() + "年元旦快乐！🎉");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 3 && dd == 8) {//妇女节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("各位女神们，妇女节快乐！👩");        sessionStorage.setItem("isPopupWindow", "1");    }}l = ["非常抱歉，因为不可控原因，博客将于明天停止运营！", "好消息，日本没了！", "美国垮了，原因竟然是川普！", "微软垮了！", "你的电脑已经过载，建议立即关机！", "你知道吗？站长很喜欢你哦！", "一分钟有61秒哦", "你喜欢的人跟别人跑了！"]if (m == 4 && dd == 1) {//愚人节，随机谎话    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(l[Math.floor(Math.random() * l.length)]);        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 1) {//劳动节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("劳动节快乐\n为各行各业辛勤工作的人们致敬！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 4) {//青年节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("青年节快乐\n青春不是回忆逝去,而是把握现在！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 5 && dd == 20) {//520    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("今年是520情人节\n快和你喜欢的人一起过吧！💑");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 7 && dd == 1) {//建党节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("祝中国共产党" + (y - 1921).toString() + "岁生日快乐！");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 9 && dd == 10) {//教师节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("各位老师们教师节快乐！👩‍🏫");        sessionStorage.setItem("isPopupWindow", "1");    }}if (m == 12 && dd == 25) {//圣诞节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("圣诞节快乐！🎄");        sessionStorage.setItem("isPopupWindow", "1");    }}//传统节日部分if ((y == 2023 && m == 4 && dd == 5) || (y == 2024 && m == 4 && dd == 4) || (y == 2025 && m == 4 && dd == 4)) {//清明节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("清明时节雨纷纷,一束鲜花祭故人💐");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((y == 2023 && m == 12 && dd == 22) || (y == 2024 && m == 12 && dd == 21) || (y == 2025 && m == 12 && dd == 21)) {//冬至    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("冬至快乐\n快吃上一碗热热的汤圆和饺子吧🧆");        sessionStorage.setItem("isPopupWindow", "1");    }}var lunar = calendarFormatter.solar2lunar();//农历采用汉字计算，防止出现闰月导致问题if ((lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初六") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初五") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初四") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初三") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初二") || (lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "初一") || (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "三十") || (lunar["IMonthCn"] == "腊月" && lunar["IDayCn"] == "廿九")) {    //春节，本来只有大年三十到初六，但是有时候除夕是大年二十九，所以也加上了    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire(y.toString() + "年新年快乐\n🎊祝你心想事成，诸事顺利🎊");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "正月" && lunar["IDayCn"] == "十五")) {    //元宵节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("元宵节快乐\n送你一个大大的灯笼🧅");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "五月" && lunar["IDayCn"] == "初五")) {    //端午节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("端午节快乐\n请你吃一条粽子🍙");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "七月" && lunar["IDayCn"] == "初七")) {    //七夕节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("七夕节快乐\n黄昏后,柳梢头,牛郎织女来碰头");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "八月" && lunar["IDayCn"] == "十五")) {    //中秋节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("中秋节快乐\n请你吃一块月饼🍪");        sessionStorage.setItem("isPopupWindow", "1");    }}if ((lunar["IMonthCn"] == "九月" && lunar["IDayCn"] == "初九")) {    //重阳节    if (sessionStorage.getItem("isPopupWindow") != "1") {        Swal.fire("重阳节快乐\n独在异乡为异客，每逢佳节倍思亲");        sessionStorage.setItem("isPopupWindow", "1");    }}// 切换主题提醒// if (y == 2022 && m == 12 && (dd >= 18 && dd <= 20)) {//     if (sessionStorage.getItem("isPopupWindow") != "1") {//         Swal.fire("网站换成冬日限定主题啦⛄");//         sessionStorage.setItem("isPopupWindow", "1");//     }// }]]></content>
       
     </entry>
     
@@ -715,10 +693,10 @@
     
     <entry>
       <title></title>
-      <link href="/js/lunar.js"/>
-      <url>/js/lunar.js</url>
+      <link href="/js/light.js"/>
+      <url>/js/light.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[// 霓虹灯效果// 颜色数组var arr = ["#39c5bb", "#f14747", "#f1a247", "#f1ee47", "#b347f1", "#1edbff", "#ed709b", "#5636ed"];// 颜色索引var idx = 0;// 切换颜色function changeColor() {    // 仅夜间模式才启用    if (document.getElementsByTagName('html')[0].getAttribute('data-theme') == 'dark') {        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = arr[idx] + " 0 0 15px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = arr[idx] + " 0 0 10px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = arr[idx] + " 0 0 5px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = arr[idx] + " 0 0 12px";            document.getElementsByClassName("author-info__description")[0].style.textShadow = arr[idx] + " 0 0 12px";        } catch {        }        idx++;        if (idx == 8) {            idx = 0;        }    } else {        // 白天模式恢复默认        if (document.getElementById("site-name"))            document.getElementById("site-name").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-title"))            document.getElementById("site-title").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("site-subtitle"))            document.getElementById("site-subtitle").style.textShadow = "#1e1e1ee0 1px 1px 1px";        if (document.getElementById("post-info"))            document.getElementById("post-info").style.textShadow = "#1e1e1ee0 1px 1px 1px";        try {            document.getElementsByClassName("author-info__name")[0].style.textShadow = "";            document.getElementsByClassName("author-info__description")[0].style.textShadow = "";        } catch {        }    }}// 开启计时器window.onload = setInterval(changeColor, 1200);]]></content>
       
     </entry>
     
@@ -748,10 +726,21 @@
     
     <entry>
       <title></title>
-      <link href="/js/runtime.js"/>
-      <url>/js/runtime.js</url>
+      <link href="/js/lunar.js"/>
+      <url>/js/lunar.js</url>
       
-        <content type="html"><![CDATA[var now = new Date();function createtime() {    // 当前时间    now.setTime(now.getTime() + 1000);    var start = new Date("08/01/2022 00:00:00"); // 旅行者1号开始计算的时间    var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒    var unit = (dis / 149600000).toFixed(6);  // 天文单位    var grt = new Date("08/09/2022 00:00:00");// 网站诞生时间    var days = (now - grt) / 1e3 / 60 / 60 / 24,        dnum = Math.floor(days),        hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,        hnum = Math.floor(hours);    1 == String(hnum).length && (hnum = "0" + hnum);    var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,        mnum = Math.floor(minutes);    1 == String(mnum).length && (mnum = "0" + mnum);    var seconds = (now - grt) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,        snum = Math.round(seconds);    1 == String(snum).length && (snum = "0" + snum);    let currentTimeHtml = "";    (currentTimeHtml =        hnum < 18 && hnum >= 9            ? `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`            : `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),        document.getElementById("workboard") &&        (document.getElementById("workboard").innerHTML = currentTimeHtml);}// 设置重复执行函数，周期1000mssetInterval(() => {    createtime();}, 1000);]]></content>
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>电影</title>
+      <link href="/movies/index.html"/>
+      <url>/movies/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -780,9 +769,9 @@
     
     
     <entry>
-      <title>电影</title>
-      <link href="/movies/index.html"/>
-      <url>/movies/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -802,6 +791,17 @@
     
     
     <entry>
+      <title>友链</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>音乐</title>
       <link href="/music/index.html"/>
       <url>/music/index.html</url>
@@ -813,11 +813,11 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title></title>
+      <link href="/js/runtime.js"/>
+      <url>/js/runtime.js</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[var now = new Date();function createtime() {    // 当前时间    now.setTime(now.getTime() + 1000);    var start = new Date("08/01/2022 00:00:00"); // 旅行者1号开始计算的时间    var dis = Math.trunc(23400000000 + ((now - start) / 1000) * 17); // 距离=秒数*速度 记住转换毫秒    var unit = (dis / 149600000).toFixed(6);  // 天文单位    var grt = new Date("08/09/2022 00:00:00");// 网站诞生时间    var days = (now - grt) / 1e3 / 60 / 60 / 24,        dnum = Math.floor(days),        hours = (now - grt) / 1e3 / 60 / 60 - 24 * dnum,        hnum = Math.floor(hours);    1 == String(hnum).length && (hnum = "0" + hnum);    var minutes = (now - grt) / 1e3 / 60 - 1440 * dnum - 60 * hnum,        mnum = Math.floor(minutes);    1 == String(mnum).length && (mnum = "0" + mnum);    var seconds = (now - grt) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,        snum = Math.round(seconds);    1 == String(snum).length && (snum = "0" + snum);    let currentTimeHtml = "";    (currentTimeHtml =        hnum < 18 && hnum >= 9            ? `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-科研摸鱼中.svg' title='什么时候能够实现财富自由呀~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`            : `<img class='boardsign' src='https://sourcebucket.s3.ladydaily.com/badge/F小屋-下班休息啦.svg' title='下班了就该开开心心地玩耍~'><br> <div style="font-size:13px;font-weight:bold">本站居然运行了 ${dnum} 天 ${hnum} 小时 ${mnum} 分 ${snum} 秒 <i id="heartbeat" class='fas fa-heartbeat'></i> <br> 旅行者 1 号当前距离地球 ${dis} 千米，约为 ${unit} 个天文单位 🚀</div>`),        document.getElementById("workboard") &&        (document.getElementById("workboard").innerHTML = currentTimeHtml);}// 设置重复执行函数，周期1000mssetInterval(() => {    createtime();}, 1000);]]></content>
       
     </entry>
     
